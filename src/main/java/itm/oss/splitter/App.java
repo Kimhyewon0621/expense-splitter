@@ -210,7 +210,7 @@ public class App {
     return r;
   }
   
-  BigDecimal readBigDecimal (String prompt) {
+  BigDecimal readBigDecimal(String prompt) {
     while(true) {
       System.out.print(prompt);
       String scan = sc.nextLine().trim();

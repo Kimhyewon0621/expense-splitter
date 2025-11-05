@@ -78,6 +78,7 @@ public class App {
 
     Expense exp = new Expense(date, payer, amount, currency, participants, category, notes);
     ExpenseValidator.validate(exp);
+    store.append(DATA_FILE, exp);
     //store.append(DATA_FILE, exp);
     System.out.println("SUCCESS: Expense added.");
   }
@@ -208,4 +209,23 @@ public class App {
       r = r + sep + xs.get(i);
     return r;
   }
+  
+  BigDecimal readBigDecimal (String prompt) {
+    while(true) {
+      System.out.print(prompt);
+      String scan = sc.nextLine().trim();
+      try {
+        BigDecimal value = new BigDecimal(scan);
+        if (value.compareTo(BigDecimal.ZERO) <= 0) {
+          System.out.println("Amount must be greater than zero");
+          continue;
+        }Add a comment on lines R241 to R245Add diff commentMarkdown input:  edit mode selected.WritePreviewAdd a suggestionHeadingBoldItalicQuoteCodeLinkUnordered listNumbered listTask listMentionReferenceSaved repliesAdd FilesPaste, drop, or click to add filesCancelCommentStart a review
+        return value;
+      } catch (NumberFormatException e) {
+        System.out.println("Please enter a valid number.");
+      }
+    }
+  }
+
+  
 }

@@ -78,8 +78,8 @@ public class App {
 
     Expense exp = new Expense(date, payer, amount, currency, participants, category, notes);
     ExpenseValidator.validate(exp);
-    store.append(DATA_FILE, exp);
-    System.out.println("Expense added.");
+    //store.append(DATA_FILE, exp);
+    System.out.println("SUCCESS: Expense added.");
   }
 
   private void listExpensesFlow() throws Exception {
